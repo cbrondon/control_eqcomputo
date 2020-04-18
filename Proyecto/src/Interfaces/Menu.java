@@ -19,6 +19,7 @@ public class Menu extends javax.swing.JFrame {
         btnReporte = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         btnAUsuario = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -31,19 +32,34 @@ public class Menu extends javax.swing.JFrame {
                 btnAgregarMouseClicked(evt);
             }
         });
-        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
         btnCompu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/graphicdesign2_78420.png"))); // NOI18N
         btnCompu.setText("Computadoras");
-        getContentPane().add(btnCompu, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+        btnCompu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCompuMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnCompu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 190, -1));
 
         btnMantenimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/graphictool_78408.png"))); // NOI18N
         btnMantenimiento.setText("Mantenimiento");
-        getContentPane().add(btnMantenimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, -1));
+        btnMantenimiento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMantenimientoMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnMantenimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 190, -1));
 
         btnReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/document_bookmark_file_icon_123493.png"))); // NOI18N
         btnReporte.setText("Reporte");
-        getContentPane().add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, -1, -1));
+        btnReporte.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnReporteMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 190, -1));
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Exit-Page_icon-icons.com_53732.png"))); // NOI18N
         btnSalir.setText("Salir");
@@ -52,7 +68,7 @@ public class Menu extends javax.swing.JFrame {
                 btnSalirMouseClicked(evt);
             }
         });
-        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, 90, 40));
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 90, 40));
 
         btnAUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/1486485564-add-character-include-more-person-user_81147.png"))); // NOI18N
         btnAUsuario.setText("Agregar Usuario");
@@ -61,7 +77,12 @@ public class Menu extends javax.swing.JFrame {
                 btnAUsuarioMouseClicked(evt);
             }
         });
-        getContentPane().add(btnAUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, -1));
+        getContentPane().add(btnAUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 190, -1));
+
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Menú");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 280, 30));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/fondo.jpg"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 330));
@@ -94,7 +115,29 @@ public class Menu extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnSalirMouseClicked
 
-  
+    private void btnCompuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCompuMouseClicked
+        // TODO add your handling code here:
+        Computadoras y = new Computadoras();
+         y.setVisible(true);
+          this.dispose();
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCompuMouseClicked
+
+    private void btnMantenimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMantenimientoMouseClicked
+        // TODO add your handling code here:
+        Mantenimiento y = new Mantenimiento();
+         y.setVisible(true);
+          this.dispose();
+        this.setVisible(false);
+    }//GEN-LAST:event_btnMantenimientoMouseClicked
+
+    private void btnReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReporteMouseClicked
+        // TODO add your handling code here:
+        Reporte y = new Reporte();
+         y.setVisible(true);
+          this.dispose();
+        this.setVisible(false);
+    }//GEN-LAST:event_btnReporteMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAUsuario;
@@ -104,5 +147,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnReporte;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel fondo;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

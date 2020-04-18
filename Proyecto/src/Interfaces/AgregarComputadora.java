@@ -37,45 +37,46 @@ public class AgregarComputadora extends javax.swing.JFrame {
         txtMarca = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         btbAtras = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(txtSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 100, -1));
+        getContentPane().add(txtSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 100, -1));
 
         lblSerie.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         lblSerie.setForeground(new java.awt.Color(255, 255, 255));
         lblSerie.setText("N° de Serie:");
-        getContentPane().add(lblSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, 20));
+        getContentPane().add(lblSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, 20));
 
         lblInventario.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         lblInventario.setForeground(new java.awt.Color(255, 255, 255));
         lblInventario.setText("N° de Inventario:");
-        getContentPane().add(lblInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, -1, 20));
-        getContentPane().add(txtInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 100, -1));
-        getContentPane().add(txtRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 110, -1));
-        getContentPane().add(txtROM, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 120, -1));
+        getContentPane().add(lblInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, -1, 20));
+        getContentPane().add(txtInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, 100, -1));
+        getContentPane().add(txtRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 160, -1));
+        getContentPane().add(txtROM, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 210, -1));
 
         lblRAM.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         lblRAM.setForeground(new java.awt.Color(255, 255, 255));
         lblRAM.setText("RAM:");
-        getContentPane().add(lblRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, 20));
+        getContentPane().add(lblRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, 20));
 
         lblROM.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         lblROM.setForeground(new java.awt.Color(255, 255, 255));
         lblROM.setText("ROM:");
-        getContentPane().add(lblROM, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, 20));
+        getContentPane().add(lblROM, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, 20));
 
         lblEstado.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         lblEstado.setForeground(new java.awt.Color(255, 255, 255));
         lblEstado.setText("Estado:");
-        getContentPane().add(lblEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, 20));
+        getContentPane().add(lblEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, 20));
 
         jLabel4.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Departamento/Area:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, -1, 20));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, -1, 20));
 
         cbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "si", "no" }));
         cbEstado.setToolTipText("Seleccionar");
@@ -84,23 +85,23 @@ public class AgregarComputadora extends javax.swing.JFrame {
                 cbEstadoActionPerformed(evt);
             }
         });
-        getContentPane().add(cbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 90, -1));
+        getContentPane().add(cbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 90, -1));
 
         cbArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Sistemas", "Quimica", "Industrial", "Mecanica", "Gestion", "Petrolera", "Electrica", "Electronica", "Administrativo", "Biblioteca" }));
         cbArea.setToolTipText("");
-        getContentPane().add(cbArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 130, -1));
+        getContentPane().add(cbArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 130, -1));
 
         jLabel1.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Procesador:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, 20));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, 20));
 
         jLabel2.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Marca:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, 20));
-        getContentPane().add(txtProcesador, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 70, -1));
-        getContentPane().add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 130, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, -1, 20));
+        getContentPane().add(txtProcesador, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 100, -1));
+        getContentPane().add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 190, -1));
 
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/save_78348.png"))); // NOI18N
         btnGuardar.setText("Guardar");
@@ -109,11 +110,16 @@ public class AgregarComputadora extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 110, -1));
+        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 110, -1));
 
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/cancel_77947 (2).png"))); // NOI18N
         btnCancelar.setText("Cancelar");
-        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, -1, -1));
+        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Agregar Computadora");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 320, 30));
 
         btbAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/1486485553-ago-arrow-arrow-left-back-previous-direction-left_81160.png"))); // NOI18N
         btbAtras.setText("Atras");
@@ -122,7 +128,7 @@ public class AgregarComputadora extends javax.swing.JFrame {
                 btbAtrasMouseClicked(evt);
             }
         });
-        getContentPane().add(btbAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, -1, -1));
+        getContentPane().add(btbAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/fondo.jpg"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 340));
@@ -136,15 +142,6 @@ public class AgregarComputadora extends javax.swing.JFrame {
         
     }//GEN-LAST:event_cbEstadoActionPerformed
 
-    private void btbAtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btbAtrasMouseClicked
-    
-          Menu y =new Menu();
-        y.setVisible(true);
-        this.dispose();
-        this.setVisible(false);
-        
-    }//GEN-LAST:event_btbAtrasMouseClicked
-
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
         CallStoredProcedures llamar = new CallStoredProcedures();
@@ -157,7 +154,13 @@ public class AgregarComputadora extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    
+    private void btbAtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btbAtrasMouseClicked
+
+        Menu y =new Menu();
+        y.setVisible(true);
+        this.dispose();
+        this.setVisible(false);
+    }//GEN-LAST:event_btbAtrasMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btbAtras;
@@ -168,6 +171,7 @@ public class AgregarComputadora extends javax.swing.JFrame {
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblEstado;
     private javax.swing.JLabel lblInventario;

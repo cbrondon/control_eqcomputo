@@ -31,6 +31,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -39,27 +40,27 @@ public class AgregarUsuario extends javax.swing.JFrame {
         lblDepartamento.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         lblDepartamento.setForeground(new java.awt.Color(255, 255, 255));
         lblDepartamento.setText("Departamento:");
-        getContentPane().add(lblDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, -1, 20));
+        getContentPane().add(lblDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, 20));
 
         lblTrabajador.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         lblTrabajador.setForeground(new java.awt.Color(255, 255, 255));
         lblTrabajador.setText("N° de Trabajador:");
-        getContentPane().add(lblTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, 20));
+        getContentPane().add(lblTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, 20));
 
         lblNombre.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(255, 255, 255));
         lblNombre.setText("Nombre:");
-        getContentPane().add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, 20));
+        getContentPane().add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, 20));
 
         lblTipo.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         lblTipo.setForeground(new java.awt.Color(255, 255, 255));
         lblTipo.setText("Tipo de Usuario:");
-        getContentPane().add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, 20));
+        getContentPane().add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, 20));
 
         lblTelefono.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         lblTelefono.setForeground(new java.awt.Color(255, 255, 255));
         lblTelefono.setText("Telefono:");
-        getContentPane().add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, 20));
+        getContentPane().add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, 20));
 
         lblCorreo.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         lblCorreo.setForeground(new java.awt.Color(255, 255, 255));
@@ -69,18 +70,18 @@ public class AgregarUsuario extends javax.swing.JFrame {
         lblContraseña.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         lblContraseña.setForeground(new java.awt.Color(255, 255, 255));
         lblContraseña.setText("Contraseña:");
-        getContentPane().add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
-        getContentPane().add(pssContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 170, -1));
-        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 210, -1));
-        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 190, -1));
+        getContentPane().add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
+        getContentPane().add(pssContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 210, -1));
+        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 250, -1));
+        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 230, -1));
 
         cbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cbTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 130, -1));
+        getContentPane().add(cbTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 170, -1));
 
         cbDepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cbDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, 140, -1));
-        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 210, -1));
-        getContentPane().add(txtTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 120, -1));
+        getContentPane().add(cbDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 200, -1));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 250, -1));
+        getContentPane().add(txtTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 160, -1));
 
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/save_78348.png"))); // NOI18N
         btnGuardar.setText("Guardar");
@@ -98,6 +99,11 @@ public class AgregarUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 100, 40));
+
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Agregar Usuario");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 280, 30));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/fondo.jpg"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 340));
@@ -124,6 +130,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbDepartamento;
     private javax.swing.JComboBox<String> cbTipo;
     private javax.swing.JLabel fondo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblCorreo;
     private javax.swing.JLabel lblDepartamento;
