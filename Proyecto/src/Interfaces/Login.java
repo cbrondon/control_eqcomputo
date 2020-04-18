@@ -1,4 +1,9 @@
 package Interfaces;
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public final class Login extends javax.swing.JFrame {
 
     public Login() {
@@ -67,10 +72,27 @@ public final class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
-        Menu y =new Menu();
-        y.setVisible(true);
-        this.dispose();
-        this.setVisible(false);
+        CallStoredProcedures llamar = new CallStoredProcedures();
+        String pass = new String(pssContraseña.getPassword());
+        if((txtUsuario.getText()!=null)&&(pass!=null)){
+            try {
+                String var=llamar.ingresar(txtUsuario.getText(), pass);
+                System.out.println(var);
+                var.trim();
+                if(var.equals("true")){
+                    Menu y =new Menu();
+                    y.setVisible(true);
+                    this.dispose();
+                    this.setVisible(false);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(AgregarComputadora.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        txtUsuario.setText("");
+        pssContraseña.setText("");
+        
+        
         
         
     }//GEN-LAST:event_btnIngresarMouseClicked

@@ -27,7 +27,6 @@ public class CallStoredProcedures {
 
     protected void añadirEquipo(String numinvent, String estado, String numserie, String ram, String rom, String procesador, String marca, String dpto) throws SQLException {
         conexion conex = new conexion();
-
         try (Connection conect = conex.Conexion()) {
 
             CallableStatement sp = conect.prepareCall("{CALL añadir_equipo(?,?,?,?,?,?,?,?,?)}");
@@ -49,6 +48,27 @@ public class CallStoredProcedures {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error en la consulta es : " + e.getMessage());
         }
+        
     }
 
+    protected String ingresar(String correo, String contraseña) throws SQLException {
+        conexion conex = new conexion();
+        String resul = null;
+        try (Connection conect = conex.Conexion()) {
+
+            CallableStatement sp = conect.prepareCall("{CALL ingresar(?,?,?)}");
+
+            sp.setString("email", correo);
+            sp.setString("password", contraseña);
+            sp.registerOutParameter("mensaje", Types.VARCHAR);
+            sp.execute();
+            resul = sp.getString("mensaje");
+            conect.close();
+            //JOptionPane.showMessageDialog(null, resul);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error en la consulta es : " + e.getMessage());
+        }
+        return resul;
+    }
 }
