@@ -39,8 +39,8 @@ public class Mantenimiento extends javax.swing.JFrame {
         lblTecnico = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
-        dcFecha = new com.toedter.calendar.JDateChooser();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jdFecha = new com.toedter.calendar.JDateChooser();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -104,11 +104,9 @@ public class Mantenimiento extends javax.swing.JFrame {
         });
         getContentPane().add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 160, -1));
 
-        dcFecha.setDateFormatString("yyyy/MM/d");
-        getContentPane().add(dcFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 160, -1));
-
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 180, -1));
+        getContentPane().add(jdFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 160, -1));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/fondo.jpg"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 340));
@@ -140,9 +138,9 @@ public class Mantenimiento extends javax.swing.JFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JComboBox<String> cbArea;
-    private com.toedter.calendar.JDateChooser dcFecha;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private com.toedter.calendar.JDateChooser jdFecha;
     private javax.swing.JLabel lblDepartamento;
     private javax.swing.JLabel lblEquipo;
     private javax.swing.JLabel lblFecha;
