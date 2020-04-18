@@ -47,7 +47,7 @@ public class CallStoredProcedures {
             JOptionPane.showMessageDialog(null, resul);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error en la consulta : " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error en la consulta es : " + e.getMessage());
         }
     }
 
