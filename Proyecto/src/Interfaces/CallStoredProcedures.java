@@ -71,4 +71,27 @@ public class CallStoredProcedures {
         }
         return resul;
     }
+    
+    protected void mostrarequipos(String equipo,String fecha,String depto) throws SQLException{
+        conexion conex = new conexion();
+        ResultSet rs = null;
+        try (Connection conect = conex.Conexion()) {
+         
+            CallableStatement sp = conect.prepareCall("{CALL mostrarequipos(?,?,?,?)}");
+
+            sp.setString("eq", equipo);
+            sp.setString("fech", fecha);
+            sp.setString("depto", depto);
+            sp.registerOutParameter("mensaje", Types.VARCHAR);
+            sp.execute();
+            String resul = sp.getString("mensaje");
+            conect.close();
+            //JOptionPane.showMessageDialog(null, resul);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error en la consulta es : " + e.getMessage());
+        }
+        
+    }
+    
 }

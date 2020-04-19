@@ -5,6 +5,14 @@
  */
 package Interfaces;
 
+import com.mysql.jdbc.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Yamary
@@ -34,11 +42,7 @@ public class Mantenimiento extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         btbAtras = new javax.swing.JButton();
-        lblID = new javax.swing.JLabel();
-        txtTecnico = new javax.swing.JTextField();
-        lblTecnico = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
-        txtID = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         jdFecha = new com.toedter.calendar.JDateChooser();
         Fondo = new javax.swing.JLabel();
@@ -56,7 +60,17 @@ public class Mantenimiento extends javax.swing.JFrame {
         lblDepartamento.setText("Departamento/Area:");
         getContentPane().add(lblDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, 20));
 
-        cbArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Sistemas", "Quimica", "Industrial", "Mecanica", "Gestion", "Petrolera", "Electrica", "Electronica", "Administrativo", "Biblioteca" }));
+        cbArea.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbAreaItemStateChanged(evt);
+            }
+        });
+        cbArea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbAreaActionPerformed(evt);
+            }
+        });
         getContentPane().add(cbArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 130, -1));
 
         lblEquipo.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
@@ -66,6 +80,11 @@ public class Mantenimiento extends javax.swing.JFrame {
 
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/save_78348.png"))); // NOI18N
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 110, -1));
 
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/cancel_77947 (2).png"))); // NOI18N
@@ -81,33 +100,15 @@ public class Mantenimiento extends javax.swing.JFrame {
         });
         getContentPane().add(btbAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, -1));
 
-        lblID.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
-        lblID.setForeground(new java.awt.Color(255, 255, 255));
-        lblID.setText("ID:");
-        getContentPane().add(lblID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, 20));
-        getContentPane().add(txtTecnico, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 160, -1));
-
-        lblTecnico.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
-        lblTecnico.setForeground(new java.awt.Color(255, 255, 255));
-        lblTecnico.setText("Tecnico:");
-        getContentPane().add(lblTecnico, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, 20));
-
         lblFecha.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
         lblFecha.setText("Fecha:");
         getContentPane().add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, 20));
 
-        txtID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIDActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 160, -1));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar departamento" }));
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 180, -1));
 
-        jdFecha.setDateFormatString("yyyy/MM/d");
+        jdFecha.setDateFormatString("yyyy-MM-dd");
         getContentPane().add(jdFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 160, -1));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/fondo.jpg"))); // NOI18N
@@ -125,9 +126,43 @@ public class Mantenimiento extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btbAtrasMouseClicked
 
-    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
+    private void cbAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAreaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIDActionPerformed
+        try  {
+            jComboBox1.removeAllItems();
+            conexion conex = new conexion();
+            Connection conect = conex.Conexion();
+            String q1 = "select numinvent from equipo where "+String.valueOf(cbArea.getSelectedIndex()).trim()+"=dpto";
+            Statement st = conect.createStatement();
+            ResultSet rs = st.executeQuery(q1);
+            while(rs.next()){
+                jComboBox1.addItem(rs.getString("numinvent"));
+            } 
+        } catch (SQLException e) {
+            //JOptionPane.showMessageDialog(null, "Error en la consulta es : " + e.getMessage());
+        }
+    }//GEN-LAST:event_cbAreaActionPerformed
+
+    private void cbAreaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbAreaItemStateChanged
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_cbAreaItemStateChanged
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+        CallStoredProcedures llamar = new CallStoredProcedures();
+        if((cbArea.getSelectedIndex()!=0)&&(jdFecha.getDate()!=null)){
+            try {
+                
+                SimpleDateFormat dcn = new SimpleDateFormat("yyyy-MM-dd");
+                String date = dcn.format(jdFecha.getDate());
+                System.out.println(date.toString());
+                llamar.mostrarequipos(jComboBox1.getSelectedItem().toString().trim(), date, String.valueOf(cbArea.getSelectedIndex()).trim());
+            } catch (SQLException ex) {
+                Logger.getLogger(AgregarComputadora.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,9 +181,5 @@ public class Mantenimiento extends javax.swing.JFrame {
     private javax.swing.JLabel lblDepartamento;
     private javax.swing.JLabel lblEquipo;
     private javax.swing.JLabel lblFecha;
-    private javax.swing.JLabel lblID;
-    private javax.swing.JLabel lblTecnico;
-    private javax.swing.JTextField txtID;
-    private javax.swing.JTextField txtTecnico;
     // End of variables declaration//GEN-END:variables
 }
