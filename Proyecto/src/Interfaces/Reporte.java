@@ -16,6 +16,7 @@ public class Reporte extends javax.swing.JFrame {
      */
     public Reporte() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -30,6 +31,7 @@ public class Reporte extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         cbTipoReporte = new javax.swing.JComboBox<>();
         btbAtras = new javax.swing.JButton();
+        btnReporte = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -41,7 +43,7 @@ public class Reporte extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 280, 30));
 
         cbTipoReporte.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cbTipoReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 100, 20));
+        getContentPane().add(cbTipoReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 180, 40));
 
         btbAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/1486485553-ago-arrow-arrow-left-back-previous-direction-left_81160.png"))); // NOI18N
         btbAtras.setText("Atras");
@@ -51,6 +53,10 @@ public class Reporte extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btbAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, -1, -1));
+
+        btnReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/pdf-file_47192.png"))); // NOI18N
+        btnReporte.setText("Generar Reporte");
+        getContentPane().add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 160, 40));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/fondo.jpg"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 340));
@@ -74,6 +80,7 @@ public class Reporte extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
     private javax.swing.JButton btbAtras;
+    private javax.swing.JButton btnReporte;
     private javax.swing.JComboBox<String> cbTipoReporte;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

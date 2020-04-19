@@ -23,6 +23,7 @@ public class Computadoras extends javax.swing.JFrame {
      */
     public Computadoras() {
         initComponents();
+        this.setLocationRelativeTo(null);
         
         
     }

@@ -18,7 +18,6 @@ public class Menu extends javax.swing.JFrame {
         btnMantenimiento = new javax.swing.JButton();
         btnReporte = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
-        btnAUsuario = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
@@ -32,7 +31,7 @@ public class Menu extends javax.swing.JFrame {
                 btnAgregarMouseClicked(evt);
             }
         });
-        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
         btnCompu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/graphicdesign2_78420.png"))); // NOI18N
         btnCompu.setText("Computadoras");
@@ -41,7 +40,7 @@ public class Menu extends javax.swing.JFrame {
                 btnCompuMouseClicked(evt);
             }
         });
-        getContentPane().add(btnCompu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 190, -1));
+        getContentPane().add(btnCompu, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 190, -1));
 
         btnMantenimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/graphictool_78408.png"))); // NOI18N
         btnMantenimiento.setText("Mantenimiento");
@@ -50,7 +49,7 @@ public class Menu extends javax.swing.JFrame {
                 btnMantenimientoMouseClicked(evt);
             }
         });
-        getContentPane().add(btnMantenimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 190, -1));
+        getContentPane().add(btnMantenimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 190, -1));
 
         btnReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/document_bookmark_file_icon_123493.png"))); // NOI18N
         btnReporte.setText("Reporte");
@@ -59,7 +58,7 @@ public class Menu extends javax.swing.JFrame {
                 btnReporteMouseClicked(evt);
             }
         });
-        getContentPane().add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 190, -1));
+        getContentPane().add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 190, -1));
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Exit-Page_icon-icons.com_53732.png"))); // NOI18N
         btnSalir.setText("Salir");
@@ -69,15 +68,6 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 90, 40));
-
-        btnAUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/1486485564-add-character-include-more-person-user_81147.png"))); // NOI18N
-        btnAUsuario.setText("Agregar Usuario");
-        btnAUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAUsuarioMouseClicked(evt);
-            }
-        });
-        getContentPane().add(btnAUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 190, -1));
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -98,14 +88,6 @@ public class Menu extends javax.swing.JFrame {
         this.setVisible(false);
         
     }//GEN-LAST:event_btnAgregarMouseClicked
-
-    private void btnAUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAUsuarioMouseClicked
-       
-         AgregarUsuario y =new AgregarUsuario ();
-        y.setVisible(true);
-        this.dispose();
-        this.setVisible(false);
-    }//GEN-LAST:event_btnAUsuarioMouseClicked
 
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
      
@@ -140,7 +122,6 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReporteMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAUsuario;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnCompu;
     private javax.swing.JButton btnMantenimiento;

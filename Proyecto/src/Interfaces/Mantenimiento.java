@@ -24,6 +24,7 @@ public class Mantenimiento extends javax.swing.JFrame {
      */
     public Mantenimiento() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -58,7 +59,7 @@ public class Mantenimiento extends javax.swing.JFrame {
         lblDepartamento.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         lblDepartamento.setForeground(new java.awt.Color(255, 255, 255));
         lblDepartamento.setText("Departamento/Area:");
-        getContentPane().add(lblDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, 20));
+        getContentPane().add(lblDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, 20));
 
         cbArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Sistemas", "Quimica", "Industrial", "Mecanica", "Gestion", "Petrolera", "Electrica", "Electronica", "Administrativo", "Biblioteca" }));
         cbArea.addItemListener(new java.awt.event.ItemListener() {
@@ -71,12 +72,12 @@ public class Mantenimiento extends javax.swing.JFrame {
                 cbAreaActionPerformed(evt);
             }
         });
-        getContentPane().add(cbArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 130, -1));
+        getContentPane().add(cbArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 130, -1));
 
         lblEquipo.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         lblEquipo.setForeground(new java.awt.Color(255, 255, 255));
         lblEquipo.setText("Equipo:");
-        getContentPane().add(lblEquipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, 20));
+        getContentPane().add(lblEquipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, 20));
 
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/save_78348.png"))); // NOI18N
         btnGuardar.setText("Guardar");
@@ -103,13 +104,13 @@ public class Mantenimiento extends javax.swing.JFrame {
         lblFecha.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
         lblFecha.setText("Fecha:");
-        getContentPane().add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, 20));
+        getContentPane().add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, 20));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar departamento" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 180, -1));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 180, -1));
 
         jdFecha.setDateFormatString("yyyy-MM-dd");
-        getContentPane().add(jdFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 160, -1));
+        getContentPane().add(jdFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 160, -1));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/fondo.jpg"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 340));
