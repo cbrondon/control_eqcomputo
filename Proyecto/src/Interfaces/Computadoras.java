@@ -5,6 +5,13 @@
  */
 package Interfaces;
 
+import com.mysql.jdbc.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Yamary
@@ -16,6 +23,8 @@ public class Computadoras extends javax.swing.JFrame {
      */
     public Computadoras() {
         initComponents();
+        
+        
     }
 
     /**
@@ -38,18 +47,20 @@ public class Computadoras extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Sistemas", "Quimica", "Industrial", "Mecanica", "Gestion", "Petrolera", "Electrica", "Electronica", "Administrativo", "Biblioteca" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 170, 40));
 
         TbComputadoras.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "N. Inventario", "Estado", "N. Serie", "RAM", "ROM", "Procesador", "Marca"
             }
         ));
         jScrollPane1.setViewportView(TbComputadoras);
@@ -58,6 +69,11 @@ public class Computadoras extends javax.swing.JFrame {
 
         btnMostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/1485476008-artboard-1_78539 (1).png"))); // NOI18N
         btnMostrar.setText("Mostrar");
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
@@ -87,6 +103,55 @@ public class Computadoras extends javax.swing.JFrame {
         this.dispose();
         this.setVisible(false);
     }//GEN-LAST:event_btbAtrasMouseClicked
+
+    
+    public ArrayList<Equipo> equiposList(){
+    ArrayList<Equipo> equiposList = new ArrayList<>();
+    
+        try  {
+            conexion conex = new conexion();
+            Connection conect = conex.Conexion();
+            String q1 = "SELECT * FROM equipo WHERE dpto="+ String.valueOf(jComboBox1.getSelectedIndex()).trim();
+            Statement st = conect.createStatement();
+            ResultSet rs = st.executeQuery(q1);
+            Equipo equipos;
+            while(rs.next()){
+                equipos = new Equipo(rs.getString("numinvent"), rs.getString("estado"), rs.getString("numserie"), rs.getString("ram"), rs.getString("rom"), rs.getString("procesador"),rs.getString("marca"), rs.getString("dpto"));
+                equiposList.add(equipos);
+            } 
+        } catch (SQLException e) {
+            //JOptionPane.showMessageDialog(null, "Error en la consulta es : " + e.getMessage());
+        }
+    return equiposList;
+    }
+    
+    public void show_user (){
+        ArrayList <Equipo> list = equiposList();
+        DefaultTableModel model = (DefaultTableModel) TbComputadoras.getModel();
+        model.setRowCount(0);
+        Object[] row = new Object[7];
+        for (int i = 0; i < list.size(); i++) {
+            Object object = row[i];
+            row[0] = list.get(i).getNuminvent();
+            row[1] = list.get(i).getEstado();
+            row[2] = list.get(i).getNumserie();
+            row[3] = list.get(i).getRam();
+            row[4] = list.get(i).getRom();
+            row[5] = list.get(i).getProcesador();
+            row[6] = list.get(i).getMarca();
+            model.addRow(row);
+        }
+    }
+    
+    
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        // TODO add your handling code here:
+        show_user();
+    }//GEN-LAST:event_btnMostrarActionPerformed
 
     /**
      * @param args the command line arguments

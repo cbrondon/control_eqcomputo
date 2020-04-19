@@ -89,6 +89,11 @@ public class AgregarComputadora extends javax.swing.JFrame {
 
         cbArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Sistemas", "Quimica", "Industrial", "Mecanica", "Gestion", "Petrolera", "Electrica", "Electronica", "Administrativo", "Biblioteca" }));
         cbArea.setToolTipText("");
+        cbArea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbAreaActionPerformed(evt);
+            }
+        });
         getContentPane().add(cbArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 130, -1));
 
         jLabel1.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
@@ -161,6 +166,10 @@ public class AgregarComputadora extends javax.swing.JFrame {
         this.dispose();
         this.setVisible(false);
     }//GEN-LAST:event_btbAtrasMouseClicked
+
+    private void cbAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAreaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbAreaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btbAtras;
