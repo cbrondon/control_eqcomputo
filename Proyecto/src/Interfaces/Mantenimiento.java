@@ -106,6 +106,8 @@ public class Mantenimiento extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 180, -1));
+
+        jdFecha.setDateFormatString("yyyy/MM/d");
         getContentPane().add(jdFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 160, -1));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/fondo.jpg"))); // NOI18N
