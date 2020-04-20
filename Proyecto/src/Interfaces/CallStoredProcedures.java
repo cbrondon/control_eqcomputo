@@ -64,7 +64,7 @@ public class CallStoredProcedures {
             sp.execute();
             resul = sp.getString("mensaje");
             conect.close();
-            JOptionPane.showMessageDialog(null, resul);
+            //JOptionPane.showMessageDialog(null, resul);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error en la consulta es : " + e.getMessage());
