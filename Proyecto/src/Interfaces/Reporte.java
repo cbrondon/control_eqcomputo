@@ -5,6 +5,22 @@
  */
 package Interfaces;
 
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import java.io.File;
+import java.io.FileOutputStream;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.event.DocumentListener;
+import javax.swing.event.UndoableEditListener;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+//import javax.swing.text.Document;
+import javax.swing.text.Element;
+import javax.swing.text.Position;
+import javax.swing.text.Segment;
+
 /**
  *
  * @author Yamary
@@ -29,9 +45,12 @@ public class Reporte extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        cbTipoReporte = new javax.swing.JComboBox<>();
         btbAtras = new javax.swing.JButton();
         btnReporte = new javax.swing.JButton();
+        btndir = new javax.swing.JButton();
+        txtdir = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtacont = new javax.swing.JTextArea();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -41,9 +60,6 @@ public class Reporte extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Reportes");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 280, 30));
-
-        cbTipoReporte.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cbTipoReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 180, 40));
 
         btbAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/1486485553-ago-arrow-arrow-left-back-previous-direction-left_81160.png"))); // NOI18N
         btbAtras.setText("Atras");
@@ -56,7 +72,33 @@ public class Reporte extends javax.swing.JFrame {
 
         btnReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/pdf-file_47192.png"))); // NOI18N
         btnReporte.setText("Generar Reporte");
-        getContentPane().add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 160, 40));
+        btnReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 160, 40));
+
+        btndir.setText("Direccion");
+        btndir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btndir, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, -1, -1));
+
+        txtdir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtdirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtdir, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 380, 20));
+
+        txtacont.setColumns(20);
+        txtacont.setRows(5);
+        jScrollPane1.setViewportView(txtacont);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 280, 180));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/fondo.jpg"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 340));
@@ -72,6 +114,43 @@ public class Reporte extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btbAtrasMouseClicked
 
+    private void btndirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndirActionPerformed
+        // TODO add your handling code here:
+        JFileChooser dlg= new JFileChooser();
+        int opcion=dlg.showSaveDialog(this);
+        
+        if (opcion== JFileChooser.APPROVE_OPTION){
+            File f= dlg.getSelectedFile();
+            String f1= f.toString();
+            
+            txtdir.setText(f1);
+        }
+        
+    }//GEN-LAST:event_btndirActionPerformed
+
+    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
+        // TODO add your handling code here:
+        String d= txtdir.getText();
+        String tex=txtacont.getText();
+        try{
+            
+            FileOutputStream archivo= new FileOutputStream(d+ ".pdf");
+            Document doc ;
+            doc = new Document();  
+            PdfWriter.getInstance(doc, archivo);
+            doc.open();
+            doc.add(new Paragraph(tex));
+            doc.close();
+             JOptionPane.showMessageDialog(null, "Documento creado con exito.");
+        }catch (Exception e){
+        JOptionPane.showMessageDialog(null, "error"+ e);
+    }
+    }//GEN-LAST:event_btnReporteActionPerformed
+
+    private void txtdirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtdirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -81,7 +160,10 @@ public class Reporte extends javax.swing.JFrame {
     private javax.swing.JLabel Fondo;
     private javax.swing.JButton btbAtras;
     private javax.swing.JButton btnReporte;
-    private javax.swing.JComboBox<String> cbTipoReporte;
+    private javax.swing.JButton btndir;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea txtacont;
+    private javax.swing.JTextField txtdir;
     // End of variables declaration//GEN-END:variables
 }

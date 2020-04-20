@@ -68,7 +68,26 @@ public final class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        // TODO add your handling code here:
+          CallStoredProcedures llamar = new CallStoredProcedures();
+        String pass = new String(pssContraseña.getPassword());
+        if((txtUsuario.getText()!=null)&&(pass!=null)){
+            try {
+                String var=llamar.ingresar(txtUsuario.getText(), pass);
+                System.out.println(var);
+                var.trim();
+                if(var.equals("true")){
+                    Menu y =new Menu();
+                    y.setVisible(true);
+                    this.dispose();
+                    this.setVisible(false);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(AgregarComputadora.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        txtUsuario.setText("");
+        pssContraseña.setText("");
+         // TODO add your handling code here:
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
